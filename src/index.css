@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-gradient: radial-gradient(circle at 15% 15%, #F8FBFF 0%, #E8F4FC 45%, #FFEBF2 100%);
+  --card-bg: rgba(255, 255, 255, 0.72);
+  --card-border: rgba(255, 255, 255, 0.85);
+  --card-shadow: 0 16px 36px -10px rgba(168, 216, 240, 0.35), 0 0 20px rgba(255, 107, 139, 0.08);
+  --card-hover-shadow: 0 24px 48px -12px rgba(168, 216, 240, 0.45), 0 0 30px rgba(255, 107, 139, 0.2);
+  --text-main: #0B1B35;
+  --text-secondary: #41484C;
+  --text-muted: #71787C;
+  --sidebar-bg: rgba(255, 255, 255, 0.78);
+  --nav-glass: rgba(255, 255, 255, 0.82);
+  --blob-opacity: 0.45;
+}
+
+.dark {
+  --bg-gradient: radial-gradient(circle at 10% 20%, #070B16 0%, #0B132B 50%, #150F28 100%);
+  --card-bg: rgba(15, 23, 42, 0.78);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 107, 139, 0.18);
+  --card-hover-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.85), 0 0 32px rgba(255, 107, 139, 0.25);
+  --text-main: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --sidebar-bg: rgba(11, 19, 43, 0.85);
+  --nav-glass: rgba(11, 19, 43, 0.82);
+  --blob-opacity: 0.26;
+}
+
+body {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background 0.45s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease;
+}
+
+/* Frosted Glass Classes */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Strawberry Glowing Button */
+.btn-strawberry {
+  background: linear-gradient(135deg, #FF6B8B 0%, #F43F5E 100%);
+  box-shadow: 0 8px 24px -4px rgba(255, 107, 139, 0.55);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-strawberry::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: rotate(25deg);
+  transition: all 0.65s ease;
+}
+
+.btn-strawberry:hover::after {
+  left: 140%;
+}
+
+.btn-strawberry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(255, 107, 139, 0.7);
+  filter: brightness(1.04);
+}
+
+.btn-strawberry:active {
+  transform: scale(0.97);
+}
+
+/* Secondary Glass Button */
+.btn-glass {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(16px);
+  color: var(--text-main);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-glass:hover {
+  border-color: #FF6B8B;
+  color: #FF6B8B;
+  transform: translateY(-2px);
+}
+
+/* SVG Timer Ring */
+.timer-ring-stroke {
+  stroke-dasharray: 691;
+  transition: stroke-dashoffset 1s linear, stroke 0.4s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 216, 240, 0.45);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
